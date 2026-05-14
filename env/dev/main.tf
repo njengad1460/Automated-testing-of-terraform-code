@@ -25,10 +25,10 @@ module "security" {
 module "compute" {
   source = "../../modules/compute"
 
-  instance_type = var.instance_type
-  subnet_id = module.networking.public_subnet_id
+  instance_type     = var.instance_type
+  subnet_id         = module.networking.public_subnet_id
   security_group_id = module.security.security_group_id
-  key_name = var.key_name
-  environment = var.environment
-  ami_id = var.ami_id
+  key_name          = var.key_name
+  environment       = var.environment
+  ami_id            = var.ami_id
 }

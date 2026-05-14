@@ -14,13 +14,14 @@ variable "security_group_id" {
 
 variable "key_name" {
   description = "key pair name to be used"
-  type = string
+  type        = string
 }
 
 variable "environment" {
   description = "environment for the ec2 deployment"
-  type = string
+  type        = string
 }
 variable "ami_id" {
   description = "ami for the ec2 "
+  type = string
 }
