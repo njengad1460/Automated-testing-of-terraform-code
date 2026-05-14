@@ -23,5 +23,5 @@ variable "environment" {
 }
 variable "ami_id" {
   description = "ami for the ec2 "
-  type = string
+  type        = string
 }
