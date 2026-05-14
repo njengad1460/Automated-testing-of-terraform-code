@@ -10,3 +10,6 @@ variable "availability_zones" {
 variable "environment" {
   description = "deployment environment"
 }
+variable "ssh_allowed_cidr" {
+  description = "cidr block allowed for ssh"
+}
