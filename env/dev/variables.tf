@@ -13,3 +13,12 @@ variable "environment" {
 variable "ssh_allowed_cidr" {
   description = "cidr block allowed for ssh"
 }
+variable "ami_id" {
+  description = "AMI ID for the EC2 instance"
+}
+variable "instance_type" {
+  description = "EC2 instance type"
+}
+variable "key_name" {
+  description = "key pair name to be used for EC2 instance"
+}

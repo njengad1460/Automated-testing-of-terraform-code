@@ -13,11 +13,22 @@ module "networking" {
 module "security" {
   source = "../../modules/security"
 
-  vpc_id              = module.networking.vpc_id
-# This is module-to-module communication.
-# Networking module exports VPC ID.
-# Security module consumes it.
-# This is proper Terraform modular design.
-  ssh_allowed_cidr    = var.ssh_allowed_cidr
-  environment         = var.environment
+  vpc_id = module.networking.vpc_id
+  # This is module-to-module communication.
+  # Networking module exports VPC ID.
+  # Security module consumes it.
+  # This is proper Terraform modular design.
+  ssh_allowed_cidr = var.ssh_allowed_cidr
+  environment      = var.environment
+}
+
+module "compute" {
+  source = "../../modules/compute"
+
+  instance_type = var.instance_type
+  subnet_id = module.networking.public_subnet_id
+  security_group_id = module.security.security_group_id
+  key_name = var.key_name
+  environment = var.environment
+  ami_id = var.ami_id
 }
